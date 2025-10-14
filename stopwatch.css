@@ -1,0 +1,38 @@
+/* font-family: 'Michroma', sans-serif;
+font-family: 'Orbitron', sans-serif; */
+
+time {
+  font-family: 'Michroma', sans-serif;
+  font-size: 3em;
+  display: block;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+button {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  padding: 10px;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 10px;
+  transition: all .5s ease;
+}
+
+
+button:hover {
+  color: white;
+  background-color: black;
+}
