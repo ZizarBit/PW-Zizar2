@@ -27,6 +27,16 @@ app.get('/triangle/:base/:altura', (req,res) =>{
   res.status(200).json(triangle);
 })
 
+app.get('/cuadrado/:base/:altura', (req,res) => {
+  const base = parseFloat(req.params.base);
+  const altura = parseFloat(req.params.altura);
+
+  const quads = {
+    area: (base * altura)
+  };
+  res.status(200).json(triangle);
+})
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`✅ Servidor corriendo en http://localhost:${PORT}`);
