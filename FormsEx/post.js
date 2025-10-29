@@ -3,7 +3,7 @@
  */
 'use strict';
 (function() {
-  const API_URL = 'https://courses.cs.washington.edu/courses/cse154/webservices/postmantest/postwithparams.php';
+  const API_URL = '172.6.6.115:3000/users/login';
 
   window.addEventListener('load', init);
 
@@ -11,16 +11,39 @@
    * TODO - setup the sign-in button on initial page load
    */
   function init() {
-    // TODO
+    qs("form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      await signIn();
+    });
   }
 
   /**
    * TODO
    * signIn - Signs the user in based on username and password inputs
    */
-  function signIn() {
-    //TODO
+  async function signIn() {
+    try {
+      let params = new FormData(qs("form"));
+      //let params = JSON.stringify(qs("form"));
+
+      let res = await fetch(API_URL, {
+        method: "POST",
+        body: params
+      });
+      await statusCheck(res);
+      res = await res.text();
+      id("secured-section").classList.remove("hidden");
+      id("login-form").classList.add("hidden");
+      id("error").classList.add("hidden");
+    } catch (err) {
+      handleError();
+    }
   }
+
+  function handleError() {
+    id("error").classList.remove("hidden");
+  }
+
 
   /* ------------------------------ Helper Functions  ------------------------------ */
 
