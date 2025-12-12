@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de Empleados</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="crud-container">
+        <header class="header">
+            <h1>Gestión de Empleados</h1>
+            <div class="header-actions">
+                <span id="userName" class="user-name"></span>
+                <button id="logoutBtn" class="btn-logout">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <div class="content">
+            <section class="form-section">
+                <h2 id="formTitle">Agregar Nuevo Empleado</h2>
+                <form id="employeeForm">
+                    <input type="hidden" id="originalSsn" value="">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fname">Nombre *</label>
+                            <input type="text" id="fname" name="fname" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="minit">Inicial</label>
+                            <input type="text" id="minit" name="minit" maxlength="1">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lname">Apellido *</label>
+                            <input type="text" id="lname" name="lname" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ssn">SSN *</label>
+                            <input type="text" id="ssn" name="ssn" maxlength="9" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bdate">Fecha de Nacimiento</label>
+                            <input type="date" id="bdate" name="bdate">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sex">Sexo</label>
+                            <select id="sex" name="sex">
+                                <option value="">Seleccionar</option>
+                                <option value="M">Masculino</option>
+                                <option value="F">Femenino</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="address">Dirección</label>
+                            <input type="text" id="address" name="address">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="salary">Salario</label>
+                            <input type="number" id="salary" name="salary" step="0.01" min="0">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="superSsn">SSN del Supervisor</label>
+                            <input type="text" id="superSsn" name="superSsn" maxlength="9">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dno">Departamento *</label>
+                            <select id="dno" name="dno" required>
+                                <option value="">Seleccionar departamento</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary" id="submitBtn">Agregar Empleado</button>
+                        <button type="button" class="btn-secondary" id="cancelBtn">Cancelar</button>
+                    </div>
+
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+            </section>
+
+            <section class="table-section">
+                <h2>Lista de Empleados</h2>
+                <div class="table-controls">
+                    <input type="text" id="searchInput" placeholder="Buscar empleado...">
+                    <button class="btn-primary" id="refreshBtn">Actualizar</button>
+                </div>
+
+                <div class="table-container">
+                    <table id="employeesTable">
+                        <thead>
+                            <tr>
+                                <th>SSN</th>
+                                <th>Nombre Completo</th>
+                                <th>Fecha Nac.</th>
+                                <th>Sexo</th>
+                                <th>Salario</th>
+                                <th>Departamento</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="employeesTableBody">
+                            <tr>
+                                <td colspan="7" class="loading">Cargando empleados...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

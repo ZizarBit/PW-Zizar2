@@ -1,0 +1,22 @@
+{
+  "name": "crud-empleados",
+  "version": "1.0.0",
+  "description": "Sistema CRUD de empleados con Node.js y MySQL",
+  "main": "back.js",
+  "scripts": {
+    "start": "node back.js",
+    "dev": "nodemon back.js"
+  },
+  "keywords": ["crud", "empleados", "mysql", "nodejs", "api-rest"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.6.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
